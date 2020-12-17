@@ -17,6 +17,10 @@ public class Controller {
         InputView inputView = new InputView(scanner);
         cars = getCars(inputView);
         gameRound = inputView.enterGameRound();
+
+        for (int i=0; i<gameRound; i++) {
+            cars.progressRound();
+        }
     }
 
     private Cars getCars(InputView inputView) {

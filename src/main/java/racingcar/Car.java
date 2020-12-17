@@ -17,7 +17,7 @@ public class Car {
     }
 
     public void goForward() {
-
+       position++;
     }
 
 
