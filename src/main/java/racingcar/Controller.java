@@ -20,6 +20,7 @@ public class Controller {
 
         for (int i=0; i<gameRound; i++) {
             cars.progressRound();
+            cars.showStatus();
         }
     }
 

@@ -22,7 +22,9 @@ public class Cars {
                 car.goForward();
             }
         }
-
     }
 
+    public void showStatus() {
+        OutputView.printCarsStatus(cars);
+    }
 }

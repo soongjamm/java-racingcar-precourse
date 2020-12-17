@@ -20,5 +20,15 @@ public class Car {
        position++;
     }
 
+    public String getPositionBar() {
+        String bar = "";
+        for (int i = 0 ; i < position; i++) {
+            bar += "-";
+        }
+        return bar;
+    }
 
+    public String getName() {
+        return name;
+    }
 }
