@@ -11,7 +11,8 @@ public class OutputView {
     }
 
     public static void printWinners(List<Car> cars) {
+        System.out.println("# 우승자");
         cars.stream()
-                .forEach(x -> System.out.println(x.getName()));
+                .forEach(winner -> System.out.print(String.format("%s ", winner.getName())));
     }
 }
