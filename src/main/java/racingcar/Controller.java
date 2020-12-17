@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -16,9 +15,14 @@ public class Controller {
 
     public void run() {
         InputView inputView = new InputView(scanner);
-        List<Car> cars = Arrays.stream(inputView.enterCars().split(","))
-                    .map(x -> new Car(x)).collect(Collectors.toList());
+        cars = getCars(inputView);
         gameRound = inputView.enterGameRound();
-
     }
+
+    private Cars getCars(InputView inputView) {
+        return new Cars(Arrays.stream(inputView.enterCars().split(","))
+                .map(name -> new Car(name))
+                .collect(Collectors.toList()));
+    }
+
 }
