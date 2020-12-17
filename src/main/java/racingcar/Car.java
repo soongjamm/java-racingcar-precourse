@@ -14,6 +14,9 @@ public class Car {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(String.format("자동차 이름의 최대 길이는 %d를 넘을 수 없습니다.", MAX_NAME_LENGTH));
         }
+        if (Cars.findByName(name)) {
+            throw new IllegalArgumentException(String.format("%s는 이미 존재하는 이름입니다.", name));
+        };
     }
 
     public void goForward() {

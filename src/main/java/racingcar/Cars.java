@@ -1,20 +1,21 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
     private static final int MINIMUM_NUMBER_TO_MOVE = 4;
-    private List<Car> cars;
+    private static List<Car> cars = new ArrayList<>();
 
-    public Cars(List<Car> cars) {
-        this.cars = cars;
+    public static void add(Car car) {
+        cars.add(car);
     }
 
     public void findWinners() {
 
     }
 
-    public void progressRound() {
+    public static void progressRound() {
         for (Car car : cars) {
             int randomNumber = RandomNumberGenerator.generate();
             if (randomNumber > MINIMUM_NUMBER_TO_MOVE) {
@@ -22,9 +23,16 @@ public class Cars {
                 car.goForward();
             }
         }
+        showStatus();
     }
 
-    public void showStatus() {
+    private static void showStatus() {
         OutputView.printCarsStatus(cars);
     }
+
+    public static boolean findByName(String name) {
+        return cars.stream()
+                .anyMatch(car -> car.getName().equals(name));
+    }
+
 }

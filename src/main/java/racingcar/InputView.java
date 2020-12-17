@@ -36,6 +36,7 @@ public class InputView {
         try {
             String input = scanner.nextLine().trim();
             validateNumberForm(input);
+            validatePositiveNumber(Integer.parseInt(input));
             return Integer.parseInt(input);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -50,6 +51,12 @@ public class InputView {
             }
         }
         validateStringForm(input);
+    }
+
+    private void validatePositiveNumber(int input) {
+        if (input <= 0) {
+            throw new IllegalArgumentException("시도 회차는 양수여야 합니다.");
+        }
     }
 
 }

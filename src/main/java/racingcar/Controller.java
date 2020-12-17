@@ -15,19 +15,23 @@ public class Controller {
 
     public void run() {
         InputView inputView = new InputView(scanner);
-        cars = getCars(inputView);
+
+        registerCars(inputView);
         gameRound = inputView.enterGameRound();
 
         for (int i=0; i<gameRound; i++) {
-            cars.progressRound();
-            cars.showStatus();
+            Cars.progressRound();
         }
     }
 
-    private Cars getCars(InputView inputView) {
-        return new Cars(Arrays.stream(inputView.enterCars().split(","))
-                .map(name -> new Car(name))
-                .collect(Collectors.toList()));
+    private void registerCars(InputView inputView) {
+        try {
+            Arrays.stream(inputView.enterCars().split(","))
+                    .forEach(name -> Cars.add(new Car(name)));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            registerCars(inputView);
+        }
     }
 
 }
