@@ -12,10 +12,10 @@ public class Car implements Comparable<Car> {
 
     private void validateName(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(String.format("자동차 이름의 최대 길이는 %d를 넘을 수 없습니다.", MAX_NAME_LENGTH));
+            throw new IllegalArgumentException(String.format("[ERROR] 자동차 이름의 최대 길이는 %d를 넘을 수 없습니다.", MAX_NAME_LENGTH));
         }
         if (Cars.findByName(name)) {
-            throw new IllegalArgumentException(String.format("%s는 이미 존재하는 이름입니다.", name));
+            throw new IllegalArgumentException(String.format("[ERROR] %s는 이미 존재하는 이름입니다.", name));
         };
     }
 
@@ -33,10 +33,6 @@ public class Car implements Comparable<Car> {
 
     public String getName() {
         return name;
-    }
-
-    public int getPosition() {
-        return position;
     }
 
     @Override

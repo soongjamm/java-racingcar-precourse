@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Controller {
     private final Scanner scanner;
-    private Cars cars;
     private int gameRound;
 
     public Controller(Scanner scanner) {
@@ -18,7 +17,7 @@ public class Controller {
         registerCars(inputView);
         gameRound = inputView.enterGameRound();
 
-        for (int i=0; i<gameRound; i++) {
+        for (int i = 0; i < gameRound; i++) {
             Cars.progressRound();
         }
         Cars.findWinners();
@@ -29,7 +28,7 @@ public class Controller {
             Arrays.stream(inputView.enterCars().split(","))
                     .forEach(name -> Cars.add(new Car(name)));
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.out.println("[ERROR]" + e.getMessage());
             registerCars(inputView);
         }
     }

@@ -10,13 +10,13 @@ public class InputView {
     }
 
     public String enterCars() {
-        System.out.println("자동차의 이름을 입력하세요.");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         try {
             String input = scanner.nextLine().trim();
             validateStringForm(input);
             return input;
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.out.println("[ERROR]" + e.getMessage());
             return enterCars();
         }
 
@@ -32,14 +32,14 @@ public class InputView {
     }
 
     public int enterGameRound() {
-        System.out.println("몇 회를 진행할지 입력하세요.");
+        System.out.println("시도할 회수는 몇회인가요?");
         try {
             String input = scanner.nextLine().trim();
             validateNumberForm(input);
             validatePositiveNumber(Integer.parseInt(input));
             return Integer.parseInt(input);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.out.println("[ERROR]" + e.getMessage());
             return enterGameRound();
         }
     }
