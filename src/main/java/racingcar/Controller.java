@@ -2,7 +2,6 @@ package racingcar;
 
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Controller {
     private final Scanner scanner;
@@ -22,6 +21,7 @@ public class Controller {
         for (int i=0; i<gameRound; i++) {
             Cars.progressRound();
         }
+        Cars.findWinners();
     }
 
     private void registerCars(InputView inputView) {

@@ -10,7 +10,8 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printWinners() {
-
+    public static void printWinners(List<Car> cars) {
+        cars.stream()
+                .forEach(x -> System.out.println(x.getName()));
     }
 }
