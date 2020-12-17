@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 public class Controller {
     private final Scanner scanner;
+    private Cars cars;
+    private int gameRound;
 
     public Controller(Scanner scanner) {
         this.scanner = scanner;
@@ -16,5 +18,7 @@ public class Controller {
         InputView inputView = new InputView(scanner);
         List<Car> cars = Arrays.stream(inputView.enterCars().split(","))
                     .map(x -> new Car(x)).collect(Collectors.toList());
+        gameRound = inputView.enterGameRound();
+
     }
 }
